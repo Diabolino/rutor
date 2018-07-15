@@ -197,6 +197,8 @@ wget -qO- https://github.com/rakshasa/rtorrent/archive/${RTORRENT_VER}.tar.gz | 
  git clone https://github.com/jfurrow/flood . && \
  cp config.template.js config.js && \
  npm install && \
+ sed -i -e "s/\"-march=native\", //g" /usr/flood/node_modules/argon2/binding.gyp && \
+ npm rebuild argon2 && \
  npm cache clean --force && \
  npm run build && \
  rm config.js && \
